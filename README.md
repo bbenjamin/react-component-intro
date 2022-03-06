@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# SI 579 Introduction To React Components
+
+With each branch, a new React component concept is introduced. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
