@@ -1,16 +1,16 @@
-import { useState } from "react";
 import './EventStarButton.css'
 
 const EventStarButton = (props) => {
-    const [isStarred, setIsStarred] = useState(false);
+    const { tossedOverIsStarred } = props;
+
     const starButtonHandler = (e) => {
-        setIsStarred((previousValue) => {
+        props.handMeDownSetStarStateFunction((previousValue) => {
             return !previousValue;
         });
     };
 
     const getStarMessage = () => {
-        if (isStarred) {
+        if (tossedOverIsStarred) {
             return 'U GOT STAR';
         } else {
             return 'add star';
@@ -18,7 +18,7 @@ const EventStarButton = (props) => {
     }
 
     return (
-      <button onClick={starButtonHandler} className={isStarred ? 'starred' : ''}>
+      <button onClick={starButtonHandler} className={tossedOverIsStarred ? 'starred' : ''}>
           ⭐<div>️{getStarMessage()}</div>
       </button>
     );

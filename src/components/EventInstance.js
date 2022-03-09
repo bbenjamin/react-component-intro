@@ -1,10 +1,14 @@
 import './EventInstance.css';
 import EventStarButton from "./EventStarButton";
+import { useState } from "react";
+
 
 const EventInstance = (props) => {
-    return <div className='event'>
+    const [isStarred, setIsStarred] = useState(false);
+
+    return <div className={`event  ${isStarred ? 'starred-event' : ''}`}>
         {props.children}
-        <EventStarButton />
+        <EventStarButton handMeDownSetStarStateFunction={setIsStarred} tossedOverIsStarred={isStarred} />
     </div>;
 }
 
