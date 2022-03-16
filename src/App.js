@@ -1,6 +1,8 @@
 import './App.css';
 import EventsListing from "./components/EventsListing";
 import { useState, useEffect } from "react";
+import CreateEventForm from "./components/CreateEventForm";
+
 
 function App() {
     const [umichEvents, setUmichEvents] = useState([]);
@@ -25,6 +27,7 @@ function App() {
   return (
       <main>
         <h1>Events at University of Michigan</h1>
+          <CreateEventForm setUmichEvents={setUmichEvents} />
         <EventsListing events={umichEvents} />
       </main>
   );

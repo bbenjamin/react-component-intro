@@ -1,5 +1,6 @@
 .event__info {
     padding: 6px 24px;
+    flex-grow: 1;
 }
 .event__info h2 {
     margin-top: 0;

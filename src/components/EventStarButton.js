@@ -5,20 +5,21 @@ const EventStarButton = (props) => {
     const { tossedOverIsStarred, handMeDownSetStarStateFunction, title, updateStarredEvents } = props;
 
     const starButtonHandler = (e) => {
+        updateStarredEvents((previousList) => {
+            // If starred is currently true, that means we are switching it to
+            // false and should remove the item.
+            if (tossedOverIsStarred) {
+                // Use array filter to remove anything matching the title.
+                return previousList.filter((value) => value !== title);
+            } else {
+                // You could also
+                // previousList.push(description)
+                // return previousIsStarred;
+                return [...previousList, title]
+            }
+        });
         handMeDownSetStarStateFunction((previousIsStarred) => {
-            updateStarredEvents((previousList) => {
-                // If the previous value was true, we're removing
-                // the item
-                if (previousIsStarred) {
-                    // Use array filter to remove anything matching the title.
-                    return previousList.filter((value) => value !== title);
-                } else {
-                    // You could also
-                    // previousList.push(description)
-                    // return previousIsStarred;
-                    return [...previousList, title]
-                }
-            });
+
             return !previousIsStarred;
         });
     }
@@ -44,7 +45,7 @@ const EventStarButton = (props) => {
 
     return (
       <button onClick={starButtonHandler} className={tossedOverIsStarred ? 'starred' : ''}>
-          ⭐<div>️{getStarMessage()}</div>
+          ⭐<div>️{theStarMessage}</div>
       </button>
     );
 }
