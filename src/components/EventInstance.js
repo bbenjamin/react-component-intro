@@ -8,7 +8,9 @@ const EventInstance = (props) => {
 
     return <div className={`event  ${isStarred ? 'starred-event' : ''}`}>
         {props.children}
-        <EventStarButton handMeDownSetStarStateFunction={setIsStarred} tossedOverIsStarred={isStarred} />
+        <EventStarButton
+            handMeDownSetStarStateFunction={setIsStarred}
+            tossedOverIsStarred={isStarred} />
     </div>;
 }
 
